@@ -32,4 +32,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	float MyFloat = .0098;
 
+	UPROPERTY(EditAnywhere)
+	float MyFloat2 = .0098;
+
 };
