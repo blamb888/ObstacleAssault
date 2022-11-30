@@ -36,8 +36,10 @@ void AMovingPlatform::Tick(float DeltaTime)
 	float DistanceMoved = FVector::Dist(CurrentLocation, StartLocation);
 	if (DistanceMoved > MoveDistance)  {
 		// Reverse direction of motion if gone too far
+		FVector MoveDirection = PlatformVelocity.GetSafeNormal();
+		StartLocation = StartLocation + (MoveDirection * MoveDistance);
+		SetActorLocation(StartLocation);
 		PlatformVelocity = -PlatformVelocity;
-		StartLocation = CurrentLocation;
 	}
 
 }
